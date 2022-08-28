@@ -1,0 +1,820 @@
+@import 'var';
+@import 'reset';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-family: 'Lora', serif;
+}
+
+/* --------header-------- */
+header {
+    position: relative;   
+    z-index: 1;
+}
+
+#btn1 {
+    background: $w;
+    color: $brand;
+    border: none;
+    border-radius: 50px;
+    @include res{
+        display: none;
+    }
+
+    &:hover {
+        background: $brand;
+        color: $w;
+    }
+}
+#btnj {
+    display:none;
+    background: $w;
+    color: $brand;
+    border: 2px solid $brand;
+    border-radius: 50px;
+    @include res{
+        display: none;
+    }
+
+    &:hover {
+        background: $brand;
+        color: $w;
+    }
+}
+
+.navbar-nav .nav-link.active:hover {
+    color: $brand;
+}
+.new{
+    position: fixed;
+    width: 100%;
+    z-index: 11111;
+    background: $w;
+}
+
+/*---------end of header----*/
+
+/*-- -------banner---------*/
+
+.banner {
+    background-image: url(../Image/banner_bg.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 37%;
+    position: relative;
+    top: -120px;
+    display: flex;
+    @include res{
+        background-image: none;
+        background: #F0EED4;
+        text-align: center;
+        top: 0;
+    }
+
+    .col-lg-6 img {
+        padding-top: 250px;
+        @include res{
+            display: none;
+        }
+    }
+
+    .col-lg-6 {
+        padding-top: 220px;
+        
+
+        h5 {
+            font-weight: 400;
+            font-size: 24px;
+            color: $brand;
+        }
+
+        h1 {
+            font-size: 50px;
+            @include res{
+                font-size: 27px;
+            }
+        }
+    }
+}
+.reservation{
+    @include res{
+        display: flex;
+        padding-top: 40px;
+    }
+    
+    .left{
+        position: relative;
+        button{
+            padding-left: 30px;
+            padding-right: 80px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            background: $w;
+            border: none;
+            border-left: 1px solid $b;
+            transition:all 1s;
+            @include res{
+                background: #F0EED4;
+                
+            }
+            
+        }
+        button::before{
+            content: "";
+            position: absolute;
+            top:0;
+            left: 0;
+            right: 0;
+            width: 70px;
+            height: 1px;
+            background: $b;
+            transition:all 1s;
+            
+        }
+        button::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 70px;
+            height: 1px;
+            background: $b;
+            transition:all 1s;
+            
+
+        }
+        button:hover{
+            color: $brand;
+            border-right: 1px solid $b;
+            
+            &::before,&::after{
+                width: 100%;
+                
+                
+            }
+            #sp1::before{
+                left:146px;
+                border: 9px solid  $brand;
+                border-radius: 50px;
+            }    
+        }
+        img{
+            
+            position: absolute;
+            top: -220px;  
+            right: 25px;  
+            z-index: 1;  
+            @include res{
+                display: none;
+            } 
+            
+        }
+        #sp1::before{
+            position: absolute;
+            content: "";
+            bottom: 20px;
+            left: 135px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border: 9px solid  #FFE2D6 ;
+            border-radius: 50px;
+            transition: all 1s;   
+           
+            
+        }
+    }
+    .right{
+        position:relative;
+        a{
+            font-size: 15px;
+        }
+        a i{
+            color: #FE9C6F;
+            padding: 15px 17px;
+            border-radius: 50px;
+            background-color:#FFEEE7;
+            &:hover{
+                background: #E5E5E5;
+            }
+        }
+        #watch{background: none;border: none;}
+        #watch:hover{color: $brand;}
+        
+    }
+  
+}
+
+
+/*---------end of banner-------*/
+
+/*--------------slider-------------*/
+.slider {
+    background-image: url(../Image/about_overlay.png);
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position: 1150px 550px;
+    position: relative;
+    top: -250px;
+    @include res{
+        background-image: none;
+        top: 0;
+        margin-top: 80px;
+        
+    }
+}
+
+.card {
+    border-radius: 15px 15px 80px 30px;
+
+    img {
+        border-radius: 10px 10px 0 0;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $b;
+
+        img {
+            position: relative;
+            top: 1px;
+            z-index: 1;
+        }
+
+        span {
+            position: relative;
+            top: 0;
+            height: 0;
+            border: 1px solid #FFEEE7;
+            border-radius: 50%;
+            background: #FFEEE7;
+            left: -19px;
+            padding: 0 9px;
+
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 35px 5px whitesmoke;
+        transition: all 0.3s ease-in;
+        transform: translateY(-1px);
+
+        .card-body {
+            .rm {
+                color: $brand;
+
+                img {
+                    transition: all 0.3s linear;
+                    transform: rotateX(180deg);
+                    top: -4px;
+                }
+            }
+        }
+    }
+}
+
+#hf {
+    position: relative;
+    font-size: 40px;
+}
+
+#hf::before {
+    content: "";
+    position: absolute;
+    background: $brand;
+    top: 30px;
+    left: 10px;
+    width: 90px;
+    height: 10px;
+    z-index: -1;
+}
+
+/*------------end of slider-------- */
+
+/*--------start of history--------*/
+#hf2 {
+    font-weight: 400;
+    font-size: 24px;
+    color: $brand;
+}
+.left{
+    img{
+        @include res{
+            height: 430px;
+            width: 450px;
+        }
+    }
+}
+.right {
+    a {
+        text-decoration: none;
+        color: $b;
+
+        &:hover {
+            color: $brand;
+
+            img {
+                transition: all 0.3s linear;
+                transform: rotateX(180deg);
+                top: -4px;
+            }
+        }
+    }
+
+    img {
+        position: relative;
+        top: 1px;
+        z-index: 1;
+    }
+
+    span {
+        position: relative;
+        top: 0;
+        height: 0;
+        border: 1px solid #FFEEE7;
+        border-radius: 50%;
+        background: #FFEEE7;
+        left: -20px;
+        padding: 0 9px;
+
+    }
+
+}
+
+/*----------- end of history----------*/
+
+/*----------- start of youtubelink-----*/
+.ytlink {
+    background-image: url(../Image/intro_video_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    padding: 200px;
+    display: flex;
+    align-items: center;
+    top: -200px;
+    @include res{
+        top: 0;
+        height: 500px;
+        overflow: hidden;
+    }
+}
+
+.text {
+
+    h1 {
+        font-size: 60px;
+    }
+}
+
+#yt {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    left: 0;
+    right: 0;
+    height: 100%;
+   
+    
+}
+
+#animation{
+    position: relative;
+    flex-direction: column;
+    @include res{
+        left:160px;
+    }
+
+}
+
+
+.play {
+    width:100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    i {
+        position: absolute;
+        padding:  20px 23px;
+        position: relative;
+        transform: translate(-50%, -50%);
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        top:28px;
+        left: 29px;
+        z-index: 1;
+        
+    }
+    span{
+        position: absolute;
+        border: 1px solid rgba($color: #F6F5F1, $alpha: 0.01);
+        padding: 28px;
+        background-color: rgba($color: #F6F5F1, $alpha: 0.18);
+        border-radius: 50%;
+        animation: animate 2s ease-in  infinite ;
+       animation-delay: calc(0.5s*var(--i));
+    }
+}
+.play:nth-child(2) span{
+    border: none;
+}
+@keyframes animate {
+    0%{
+        width: 0;
+        height: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        width: 130px;
+        height: 130px;
+        opacity: 0;
+    }
+}
+
+/*--------end of youtube link-------*/
+
+/*-------------start of menu----------*/
+.menu {
+    position: relative;
+    top: -200px;
+    background: #F6F5F1;
+}
+
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: $brand;
+}
+
+#navbarDropdown2 {
+    color: $brand;
+}
+
+#delicious {
+    z-index: 1;
+    position: relative;
+}
+
+#delicious::after {
+    position: absolute;
+    content: '';
+    width: 90px;
+    height: 10px;
+    background-color: $brand;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    z-index: -1;
+
+}
+
+#dollar {
+    color: $brand;
+}
+.singlefood{
+    @include res{
+        text-align: center;
+        margin-bottom: 50px;
+        background: $w;
+        width: 100%;
+        padding-top: 20px;
+        img{
+            border-radius: 50%;
+        }
+    }
+}
+
+
+/*-------------end of menu--------------*/
+
+/*-------start of team------------- */
+
+
+.chef {
+    position: relative;
+    z-index: 1;
+}
+
+.chef::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 90px;
+    height: 10px;
+    background: $brand;
+    z-index: -1;
+}
+
+.team {
+    position: relative;
+    top: -50px;
+}
+
+#card2 {
+    border-radius: 0 0 80px 20px;
+
+}
+
+.social a {
+    border: 1px solid #D2D2D2;
+    padding: 10px 13px;
+
+    &:hover {
+        color: $w;
+        background: $brand;
+    }
+}
+
+#tw {
+    padding: 10px;
+}
+
+#insta {
+    padding: 10px 12px;
+}
+
+/*--------end of team-----------------*/
+
+/*-------start of form--------------*/
+.form {
+    background-image: url(../Image/booking_tabel_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 100px;
+}
+
+#book {
+    position: relative;
+    z-index: 1;
+}
+
+#book::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100px;
+    height: 10px;
+    bottom: 10px;
+    background: $brand;
+    z-index: -1;
+
+}
+
+
+form{
+  
+    input{
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid #A1A5A5;
+        padding-bottom: 6px;
+        font-size: 14px;
+        color: #717377;
+        outline: none;
+        width: 300px; 
+        @include res{
+            width: 100%;
+        }
+    }
+    select{
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid #A1A5A5;
+        padding-bottom: 6px;
+        font-size: 14px;
+        color: #717377;
+        outline: none;
+        width: 290px;
+        @include res{
+            width: 100%;
+            
+        }
+        option{
+            color:$b;
+            background: $bg;
+        }
+    }
+    textarea {
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid #A1A5A5;
+        font-size: 14px;
+        outline: none;
+        color: $bg;
+        width: 550px;
+        height: 100px;
+        @include res{
+            width: 100%;
+        }
+    }
+   
+}
+
+    
+
+#btnf {
+    color: $w;
+    background: $brand;
+    font-size: 14px;
+
+    &:hover {
+        color: $w;
+        background: #E04000;
+    }
+}
+
+/*-------end of form--------------*/
+
+/*----------start of testimonials-------*/
+.testimonials {
+    background: $bg;
+}
+
+#sp {
+    position: relative;
+    z-index: 1;
+}
+
+#sp::after {
+    content: "";
+    position: absolute;
+    background: $brand;
+    left: 0;
+    right: 0;
+    width: 90px;
+    height: 10px;
+    bottom: 10px;
+    z-index: -1;
+}
+
+/*----------------new carousal-------*/
+
+#executive {
+    font-size: 14px;
+    color: #555555;
+    
+}
+
+.slide p {
+    font-size: 20px;
+    font-style: italic;
+    @include res{
+        font-size: 15px;
+        position: relative;
+        left: -40px;
+        margin-top: 10px;
+       
+    }
+
+}
+
+.carousel {
+    justify-content: flex-start;
+    padding: 40px 0;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;    
+}
+
+.carousel>.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    transition: transform 600ms;
+}
+
+.carousel>nav {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    z-index: 1; 
+}
+
+
+.carousel>nav a {
+    color: #000;
+    font-size: 14px;
+    opacity: .2;
+    text-decoration: none;
+}
+
+.carousel>nav a:hover {
+    opacity: .5;
+}
+
+.carousel>nav a.current {
+    opacity: 1;
+}
+
+.carousel .slide {
+    flex-shrink: 0;
+    line-height: 1.4;
+    width: 100vw;
+
+}
+
+/*----------------end of carousal-------*/
+/*----------end of testimonials-------*/
+
+/*----------start of food blogs--------*/
+
+#card1 {
+    border-radius: 20px 20px 80px 30px;
+}
+
+#cartit:hover {
+    color: $brand;
+}
+
+#hash {
+    color: $brand;
+}
+
+#fnews:hover {
+    color: $brand;
+}
+
+#carda:hover {
+    color: $brand;
+}
+
+/*----------end of food blogs--------*/
+footer p {
+    color: #979795;
+}
+
+.footer a {
+    color: #979795;
+
+    &:hover {
+        color: $brand;
+    }
+}
+
+.footer {
+    background: #F9F8F3;
+}
+
+.list-group a {
+    font-size: 15px;
+}
+
+#footerform {
+    font-size: 13px;
+    color: $b;
+}
+
+#footerbutton {
+    background: $brand;
+    @include res{
+        height: 34px;
+    }
+}
+
+.footertext {
+    font-size: 15px;
+    
+}
+
+#colorlib {
+    color: $brand;
+}
+.footerlast{
+    @include res{
+        text-align: center;
+    }
+}
+#imp{
+    @include res{
+        margin-top: 20px;
+    }
+}
+
+
+.ytlink{
+    @include res{
+        // display: none;
+    }
+}
